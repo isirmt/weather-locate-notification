@@ -53,7 +53,8 @@
         "resizable": true,
         "title": "weather-locate-notification",
         "width": 800,
-        "useHttpsScheme": true
+        "useHttpsScheme": true,
+        "decorations": false
       }
     ],
     "security": {
