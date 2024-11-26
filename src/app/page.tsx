@@ -1,4 +1,5 @@
 import { WeatherChart } from "@/components/highchart/WeatherChart";
+import SendNoticeTestButton from "@/components/SendNotice";
 import { GetPrediction } from "@/lib/weather";
 
 export default async function Home() {
@@ -7,6 +8,7 @@ export default async function Home() {
 
   return (
     <main className="lg:ml-64 transition-transform">
+      <SendNoticeTestButton />
       <WeatherChart data={prediction} />
     </main>
   );
