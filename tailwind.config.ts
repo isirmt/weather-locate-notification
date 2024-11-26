@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 
+import { iconsPlugin, getIconCollections } from '@egoist/tailwindcss-icons'
+
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,5 +16,8 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    iconsPlugin({
+      collections: getIconCollections(["tabler"]),
+    }),],
 } satisfies Config;
