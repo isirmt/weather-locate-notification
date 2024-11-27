@@ -1,15 +1,16 @@
-import { WeatherChart } from "@/components/highchart/WeatherChart";
+import WeatherChartContainer from "@/components/highchart/WeatherChartContainer";
+import PointsList from "@/components/PointsList";
+import PointsReduxWrapper from "@/components/PointsReduxWrapper";
 import SendNoticeTestButton from "@/components/SendNotice";
-import { GetPrediction } from "@/lib/weather";
 
 export default async function Home() {
-  // Tokyo Sta.
-  const prediction = await GetPrediction(35.681236, 139.767125, "Asia/Tokyo");
-
   return (
-    <main className="lg:ml-64 transition-transform">
+    <main className="lg:ml-64 relative pt-10 transition-transform">
+      <PointsReduxWrapper>
+        <PointsList />
+        <WeatherChartContainer />
+      </PointsReduxWrapper>
       <SendNoticeTestButton />
-      <WeatherChart data={prediction} />
     </main>
   );
 }

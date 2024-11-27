@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@egoist/tailwindcss-icons": "^1.8.1",
+    "@reduxjs/toolkit": "^2.3.0",
     "@tauri-apps/api": "^2.0.0",
     "@tauri-apps/plugin-clipboard-manager": "^2.0.0",
     "@tauri-apps/plugin-dialog": "~2",
@@ -25,7 +26,8 @@
     "next": "15.0.3",
     "openmeteo": "^1.1.4",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-redux": "^9.1.2"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.276",
