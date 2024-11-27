@@ -5,33 +5,29 @@ import React from "react";
 import { WeatherResponse } from "@/types/WeatherResponse";
 
 export function WeatherChart({ data }: { data: WeatherResponse[] }) {
-  const chartOptions = {
+  const chartOptions: Highcharts.Options = {
     chart: {
       type: "line",
     },
     title: {
-      text: "Precipitation forecast at 15 minute intervals",
     },
     xAxis: {
       categories: data.map((item) => item.time),
-      title: {
-        text: "Time",
-      },
-      labels: {
-        rotation: -45,
-      },
+      visible: false
     },
-    yAxis: {
-      title: {
-        text: "Precipitation (mm)",
-      },
+    legend: {
+      enabled: false
     },
     series: [
       {
-        name: "Precipitation",
+        type: "line",
+        name: "降水量",
         data: data.map((item) => item.value),
       },
     ],
+    credits: {
+      enabled: false
+    }
   };
 
   return <HighchartsReact highcharts={Highcharts} options={chartOptions} />;
