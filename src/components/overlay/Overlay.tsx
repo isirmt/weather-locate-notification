@@ -7,7 +7,7 @@ export default function Overlay({ children, onClose }: { children: React.ReactNo
       onClick={onClose}
       className="fixed top-10 left-0 size-full bg-black bg-opacity-50 z-[1000] flex items-center justify-center"
     >
-      <div className="relative bg-white rounded-md z-[1001] px-6 pb-6 pt-10" onClick={(e) => e.stopPropagation()}>
+      <div className="relative bg-white rounded-md z-[1001] px-6 pb-6 pt-10 max-w-screen-lg" onClick={(e) => e.stopPropagation()}>
         <button
           title="閉じる"
           className="absolute top-2.5 right-2.5 text-gray-500 hover:bg-gray-50 bg-transparent transition-colors size-6 flex justify-center items-center rounded"

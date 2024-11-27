@@ -7,13 +7,13 @@ import SendNoticeTestButton from "@/components/SendNotice";
 export default async function Home() {
   return (
     <main className="lg:ml-64 relative pt-10 transition-transform">
-      <OverlayProvider>
-        <PointsReduxWrapper>
+      <PointsReduxWrapper>
+        <OverlayProvider>
           <PointsList />
           <WeatherChartContainer />
-        </PointsReduxWrapper>
-        <SendNoticeTestButton />
-      </OverlayProvider>
+          <SendNoticeTestButton />
+        </OverlayProvider>
+      </PointsReduxWrapper>
     </main>
   );
 }

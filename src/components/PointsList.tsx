@@ -3,6 +3,7 @@
 import { useSelector } from "react-redux"
 import { RootState } from "@/lib/PointReduxManager"
 import { useOverlay } from "./overlay/OverlayProvider";
+import RegisterPoint from "./overlay/RegisterPoint";
 
 export default function PointsList() {
   const points = useSelector((state: RootState) => state.pointsState.points);
@@ -20,11 +21,7 @@ export default function PointsList() {
       ))}
       <li>
         <button onClick={() => {
-          openOverlay(
-            <div>
-              Test Overlay
-            </div>
-          )
+          openOverlay(<RegisterPoint />);
         }} className="flex items-center justify-center gap-1 text-white font-bold hover:bg-sky-600 transition-colors p-2 border-b-4 hover:border-b-sky-400">
           <span className="i-tabler-circle-plus size-5"></span>
           <span>地点を追加</span>
