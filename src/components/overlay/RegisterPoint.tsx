@@ -6,12 +6,14 @@ import DefaultButton from "../field/DefaultButton";
 import { addPoint } from "@/lib/PointReduxManager";
 import { v4 as uuid } from "uuid";
 import { useDispatch } from "react-redux";
+import { useOverlay } from "./OverlayProvider";
 
 export default function RegisterPoint() {
   const [name, setName] = useState<string>("地点名");
   const [latitude, setLatitude] = useState<string>("");
   const [longitude, setLongitude] = useState<string>("");
   const dispatch = useDispatch();
+  const { closeOverlay } = useOverlay();
 
   const handleRegister = () => {
     if (name.trim() === "" || latitude.trim() === "" || longitude.trim() === "") return;
@@ -23,7 +25,7 @@ export default function RegisterPoint() {
     }
 
     dispatch(addPoint(point));
-    console.log(point);
+    closeOverlay();
   }
 
   return <div className="flex flex-col gap-4 items-center">
