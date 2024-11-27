@@ -13,9 +13,16 @@ export default function WeatherChartContainer() {
   const [data, setData] = useState<WeatherResponse[]>([])
   useEffect(() => {
     const getData = async () => {
+      if (!currentPoint) {
+        setData([]);
+        return;
+      }
       setData(await GetPrediction(currentPoint.latitude, currentPoint.longitude, "Asia/Tokyo"));
     }
     getData();
-  }, [currentPoint.latitude, currentPoint.longitude])
+  }, [currentPoint, currentPoint?.latitude, currentPoint?.longitude])
+
+  if (!currentPoint) return null;
+
   return <WeatherChart data={data} />
 }
