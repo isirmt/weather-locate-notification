@@ -1,12 +1,14 @@
 'use client';
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import DefaultInput from "../field/DefaultInput";
 import DefaultButton from "../field/DefaultButton";
 import { addPoint } from "@/lib/PointReduxManager";
 import { v4 as uuid } from "uuid";
 import { useDispatch } from "react-redux";
 import { useOverlay } from "./OverlayProvider";
+import dynamic from "next/dynamic";
+import LoadingCircle from "../LoadingCircle";
 
 export default function RegisterPoint() {
   const [name, setName] = useState<string>("地点名");
@@ -14,6 +16,14 @@ export default function RegisterPoint() {
   const [longitude, setLongitude] = useState<string>("");
   const dispatch = useDispatch();
   const { closeOverlay } = useOverlay();
+  const LeafletMap = useMemo(
+    () =>
+      dynamic(() => import('@/components/map/LeafletMap'), {
+        loading: () => <div className="size-full flex justify-center items-center"><LoadingCircle /></div>,
+        ssr: false,
+      }),
+    []
+  );
 
   const handleRegister = () => {
     if (name.trim() === "" || latitude.trim() === "" || longitude.trim() === "") return;
@@ -36,6 +46,9 @@ export default function RegisterPoint() {
     <div className="flex flex-wrap gap-2 justify-center">
       <DefaultInput placeholder="緯度" value={latitude} setValue={(val) => setLatitude(val)} />
       <DefaultInput placeholder="経度" value={longitude} setValue={(val) => setLongitude(val)} />
+    </div>
+    <div className="w-full h-64 relative rounded-lg border overflow-clip">
+      <LeafletMap />
     </div>
     <div>
       <DefaultButton onClick={handleRegister}>
