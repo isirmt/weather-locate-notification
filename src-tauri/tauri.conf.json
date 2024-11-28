@@ -54,7 +54,9 @@
         "title": "weather-locate-notification",
         "width": 800,
         "useHttpsScheme": true,
-        "decorations": false
+        "decorations": false,
+        "maximized": true,
+        "additionalBrowserArgs": "--disable-features=msWebOOUI,msPdfOOUI,msSmartScreenProtection --disable-context-menu"
       }
     ],
     "security": {

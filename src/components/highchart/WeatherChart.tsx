@@ -10,10 +10,16 @@ export function WeatherChart({ data }: { data: WeatherResponse[] }) {
       type: "line",
     },
     title: {
+      text: ""
     },
     xAxis: {
       categories: data.map((item) => item.time),
       visible: false
+    },
+    yAxis: {
+      title: {
+        text: "[mm]"
+      }
     },
     legend: {
       enabled: false

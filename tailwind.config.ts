@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from "tailwindcss";
-
 import { iconsPlugin, getIconCollections } from '@egoist/tailwindcss-icons'
 
 export default {
@@ -19,5 +19,7 @@ export default {
   plugins: [
     iconsPlugin({
       collections: getIconCollections(["tabler"]),
-    }),],
+    }),
+    require("tailwind-scrollbar")
+  ],
 } satisfies Config;

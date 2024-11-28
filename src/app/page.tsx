@@ -7,7 +7,7 @@ import SendNoticeTestButton from "@/components/SendNotice";
 
 export default async function Home() {
   return (
-    <main className="lg:ml-64 relative pt-10 transition-transform">
+    <main className="flex-grow overflow-y-auto lg:ml-64 relative transition-transform flex flex-col items-center">
       <PointsReduxWrapper>
         <PointsSync />
         <OverlayProvider>
