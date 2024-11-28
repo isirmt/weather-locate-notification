@@ -43,7 +43,7 @@
   "productName": "weather-locate-notification",
   "mainBinaryName": "weather-locate-notification",
   "version": "0.1.0",
-  "identifier": "com.tauri.dev",
+  "identifier": "com.isirmt.weather-notification",
   "plugins": {},
   "app": {
     "windows": [
