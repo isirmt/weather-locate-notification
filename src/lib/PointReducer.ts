@@ -5,7 +5,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export const POINTS_LOCAL_STORAGE_KEY = 'weather_points_state';
 export const POINTS_REDUX_KEY = 'weather_points';
 
-interface PointState {
+export type PointState = {
   points: WeatherPoint[];
   currentPoint: WeatherPoint | null;
 }
