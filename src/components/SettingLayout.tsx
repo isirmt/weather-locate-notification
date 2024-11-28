@@ -7,5 +7,5 @@ export function Field({ children }: { children: React.ReactNode }) {
 }
 
 export function Label({ children }: { children: React.ReactNode }) {
-  return <div className="w-1/2">{children}</div>
+  return <div className="w-1/2 text-sm">{children}</div>
 }

@@ -10,6 +10,7 @@ import { RootState } from "@/lib/store";
 
 export default function Background() {
   const points = useSelector((state: RootState) => state.pointsState.points);
+  const settings = useSelector((state: RootState) => state.settingsState);
   const { openOverlay } = useOverlay();
 
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function Background() {
       await Promise.all(
         points.map(async (point) => {
           const data = await GetPrediction(point.latitude, point.longitude, "Asia/Tokyo");
-          const futureData = GetRainfallData(data, 30);
+          const futureData = GetRainfallData(data, settings.checkingAfterMinute);
           if (!futureData) return;
           const currentData = data[futureData.index - 1];
           if (currentData.value === 0 && futureData.data.value > 0) {
@@ -31,20 +32,20 @@ export default function Background() {
       if (rainComingSpots.length > 0) {
         SendNotice({
           title: "◆◇◆◇天気通知◇◆◇◆",
-          "body": `${30}分後に雨が降ります！お気をつけて！☔\n対象地域: ${rainComingSpots.map((spot) => spot.name).join("/")}`
+          body: `${settings.checkingAfterMinute}分後に雨が降ります！お気をつけて！☔\n対象地域: ${rainComingSpots.map((spot) => spot.name).join("/")}`
         })
         openOverlay(
           <div>
-            {30}分後に雨が降り出します！☔<br />
+            {settings.checkingAfterMinute}分後に雨が降り出します！☔<br />
             対象地域: {rainComingSpots.map((spot) => spot.name).join("/")}
           </div>
         );
       }
 
-    }, 60 * 1000);
+    }, settings.backgroundNoticeInterval * 60 * 1000);
 
     return () => clearInterval(intervalId);
-  }, [openOverlay, points]);
+  }, [openOverlay, points, settings.backgroundNoticeInterval, settings.checkingAfterMinute]);
 
   return null;
 }

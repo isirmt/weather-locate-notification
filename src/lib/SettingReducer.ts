@@ -6,10 +6,12 @@ export const SETTINGS_REDUX_KEY = 'settings';
 
 export type SettingsState = {
   backgroundNoticeInterval: number, // min
+  checkingAfterMinute: number, // min
 }
 
 const initialState: SettingsState = {
   backgroundNoticeInterval: 15,
+  checkingAfterMinute: 30,
 };
 
 const settingsSlice = createSlice({
@@ -18,6 +20,7 @@ const settingsSlice = createSlice({
   reducers: {
     setSettings: (state, action: PayloadAction<SettingsState>) => {
       state.backgroundNoticeInterval = action.payload.backgroundNoticeInterval;
+      state.checkingAfterMinute = action.payload.checkingAfterMinute;
     }
   },
 });
