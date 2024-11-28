@@ -19,8 +19,15 @@ export default function SidebarNavigation() {
           <li>
             <Link
               href="/"
-              className="block w-full border border-transparent hover:border-gray-200 hover:bg-gray-100 transition-colors px-2 py-1 rounded">
-              HOME
+              className="flex items-center justify-start gap-1 w-full border border-transparent hover:border-gray-200 hover:bg-gray-100 transition-colors px-2 py-1 rounded">
+              <span className="i-tabler-home" />ホーム
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/settings"
+              className="flex items-center justify-start gap-1 w-full border border-transparent hover:border-gray-200 hover:bg-gray-100 transition-colors px-2 py-1 rounded">
+              <span className="i-tabler-settings" />設定
             </Link>
           </li>
         </ul>

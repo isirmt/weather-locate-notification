@@ -3,7 +3,7 @@
 import { useCallback, useMemo, useState } from "react";
 import DefaultInput from "../field/DefaultInput";
 import DefaultButton from "../field/DefaultButton";
-import { addPoint } from "@/lib/PointReduxManager";
+import { addPoint } from "@/lib/PointReducer";
 import { v4 as uuid } from "uuid";
 import { useDispatch } from "react-redux";
 import { useOverlay } from "./OverlayProvider";

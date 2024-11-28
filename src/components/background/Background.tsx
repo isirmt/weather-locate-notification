@@ -1,12 +1,12 @@
 'use client';
 import { SendNotice } from "@/lib/NoticeManager";
-import { RootState } from "@/lib/PointReduxManager";
 import { GetPrediction } from "@/lib/weather";
 import { GetRainfallData } from "@/lib/WeatherIndexGetter";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useOverlay } from "../overlay/OverlayProvider";
 import { WeatherPoint } from "@/types/WeatherPoint";
+import { RootState } from "@/lib/store";
 
 export default function Background() {
   const points = useSelector((state: RootState) => state.pointsState.points);
@@ -40,7 +40,6 @@ export default function Background() {
           </div>
         );
       }
-
 
     }, 60 * 1000);
 

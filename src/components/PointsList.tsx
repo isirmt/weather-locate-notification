@@ -1,9 +1,10 @@
 'use client'
 
 import { useDispatch, useSelector } from "react-redux"
-import { changeCurrentPoint, RootState } from "@/lib/PointReduxManager"
 import { useOverlay } from "./overlay/OverlayProvider";
 import RegisterPoint from "./overlay/RegisterPoint";
+import { RootState } from "@/lib/store";
+import { changeCurrentPoint } from "@/lib/PointReducer";
 
 export default function PointsList() {
   const points = useSelector((state: RootState) => state.pointsState.points);

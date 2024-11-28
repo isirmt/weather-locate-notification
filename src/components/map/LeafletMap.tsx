@@ -21,7 +21,7 @@ export default function LeafletMap({ onLocationSelect, initialPos = { latitude: 
 
     // Tokyo Sta.
     const position = new LatLng(initialPos.latitude, initialPos.longitude);
-    mapRef.current = L.map(mapContainerRef.current).setView(position, 14);
+    mapRef.current = L.map(mapContainerRef.current, {minZoom: 5}).setView(position, 14);
 
     L.tileLayer(
       'https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',
@@ -47,8 +47,26 @@ export default function LeafletMap({ onLocationSelect, initialPos = { latitude: 
         mapRef.current = null;
       }
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onLocationSelect]);
 
-  return <div ref={mapContainerRef} className="simple-map-container" />;
+  return (
+    <div className="relative size-full bg-white flex items-center justify-center">
+      {/* Map container */}
+      <div ref={mapContainerRef} className="simple-map-container" />
+
+      {/* Crosshair */}
+      <div className="size-full absolute pointer-events-none flex items-center justify-center z-[99999]">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="36"
+          height="36"
+        >
+          <line x1="12" y1="5" x2="12" y2="19" stroke="red" strokeWidth="1.5" />
+          <line x1="5" y1="12" x2="19" y2="12" stroke="red" strokeWidth="1.5" />
+        </svg>
+      </div>
+    </div>
+  );
 };

@@ -4,11 +4,11 @@ import { GetPrediction } from "@/lib/weather";
 import { WeatherResponse } from "@/types/WeatherResponse";
 import { useEffect, useState } from "react";
 import { WeatherChart } from "./WeatherChart";
-import { RootState } from "@/lib/PointReduxManager";
 import { useSelector } from "react-redux";
 import { GetRainfallData } from "@/lib/WeatherIndexGetter";
 import { parseISO } from "date-fns";
 import { toZonedTime } from "date-fns-tz";
+import { RootState } from "@/lib/store";
 
 export default function WeatherChartContainer() {
   const currentPoint = useSelector((state: RootState) => state.pointsState.currentPoint);

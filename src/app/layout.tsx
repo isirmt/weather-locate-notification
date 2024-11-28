@@ -3,8 +3,7 @@ import "./globals.css";
 import SidebarNavigation from "@/components/sidebar/Navigation";
 import Header from "@/components/Header";
 import Background from "@/components/background/Background";
-import PointsReduxWrapper from "@/components/PointsReduxWrapper";
-import PointsSync from "@/components/PointsSync";
+import ReduxWrapper from "@/components/ReduxWrapper";
 import { OverlayProvider } from "@/components/overlay/OverlayProvider";
 
 export const metadata: Metadata = {
@@ -20,15 +19,14 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <body className="flex flex-col h-screen">
-        <PointsReduxWrapper>
-          <PointsSync />
+        <ReduxWrapper>
           <OverlayProvider>
             <Background />
             <Header />
             <SidebarNavigation />
             {children}
           </OverlayProvider>
-        </PointsReduxWrapper>
+        </ReduxWrapper>
       </body>
     </html>
   );
