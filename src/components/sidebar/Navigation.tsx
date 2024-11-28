@@ -13,7 +13,7 @@ export default function SidebarNavigation() {
     >
       <span className="i-tabler-list-tree size-5" />
     </button>
-    <aside className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full lg:translate-x-0 ${isOpen && "translate-x-0"}`}>
+    <aside className={`fixed top-0 left-0 z-40 w-64 h-screen lg:transition-none transition-transform -translate-x-full lg:translate-x-0 ${isOpen && "translate-x-0"}`}>
       <div className="h-full px-3 pt-14 pb-4 overflow-y-auto bg-gray-50">
         <ul>
           <li>
@@ -25,7 +25,6 @@ export default function SidebarNavigation() {
           </li>
         </ul>
       </div>
-
     </aside>
   </React.Fragment>
 }
