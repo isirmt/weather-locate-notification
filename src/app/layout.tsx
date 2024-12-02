@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" suppressHydrationWarning>
-      <body className="flex flex-col h-screen">
+      <body className="flex flex-col h-screen overscroll-none">
         <ReduxWrapper>
           <OverlayProvider>
             <Background />
