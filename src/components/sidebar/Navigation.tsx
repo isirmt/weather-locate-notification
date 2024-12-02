@@ -30,7 +30,7 @@ export default function SidebarNavigation() {
     <button
       title="Open Sidebar"
       onClick={() => setIsOpen(!isOpen)}
-      className="fixed size-8 top-1 left-2 z-50 border rounded flex items-center justify-center hover:bg-gray-50"
+      className="fixed size-8 top-1 left-2 z-50 border rounded flex items-center justify-center hover:bg-gray-50 lg:hidden lg:pointer-events-none"
     >
       <span className="i-tabler-list-tree size-5" />
     </button>
