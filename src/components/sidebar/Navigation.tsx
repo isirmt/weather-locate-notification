@@ -1,6 +1,6 @@
 'use client';
-import Link from "next/link";
 import React, { useState } from "react";
+import { SidebarItem } from "./SiderbarItem";
 
 export default function SidebarNavigation() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -17,18 +17,19 @@ export default function SidebarNavigation() {
       <div className="h-full px-3 pt-14 pb-4 overflow-y-auto bg-gray-50">
         <ul>
           <li>
-            <Link
-              href="/"
-              className="flex items-center justify-start gap-1 w-full border border-transparent hover:border-gray-200 hover:bg-gray-100 transition-colors px-2 py-1 rounded">
+            <SidebarItem href="/">
               <span className="i-tabler-home" />ホーム
-            </Link>
+            </SidebarItem>
           </li>
           <li>
-            <Link
-              href="/settings"
-              className="flex items-center justify-start gap-1 w-full border border-transparent hover:border-gray-200 hover:bg-gray-100 transition-colors px-2 py-1 rounded">
+            <SidebarItem href="/list">
+              <span className="i-tabler-cloud" />一覧表示
+            </SidebarItem>
+          </li>
+          <li>
+            <SidebarItem href="/settings">
               <span className="i-tabler-settings" />設定
-            </Link>
+            </SidebarItem>
           </li>
         </ul>
       </div>
