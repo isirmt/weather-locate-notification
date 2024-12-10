@@ -1,8 +1,8 @@
 'use client';
 
-import { isPermissionGranted, requestPermission, sendNotification } from "@tauri-apps/plugin-notification";
+import { isPermissionGranted, requestPermission, sendNotification } from '@tauri-apps/plugin-notification';
 
-export default function SendNoticeTestButton({ message = "Test" }: { message?: string }) {
+export default function SendNoticeTestButton({ message = 'Test' }: { message?: string }) {
   const handleClick = async () => {
     let permissionGranted = await isPermissionGranted();
     if (!permissionGranted) {
@@ -12,9 +12,11 @@ export default function SendNoticeTestButton({ message = "Test" }: { message?: s
     if (permissionGranted) {
       sendNotification({ title: 'TAURI', body: message });
     }
-  }
+  };
 
-  return <button onClick={handleClick} className="block p-2">
-    Send Notice
-  </button>
+  return (
+    <button onClick={handleClick} className='block p-2'>
+      Send Notice
+    </button>
+  );
 }

@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import SidebarNavigation from "@/components/sidebar/Navigation";
-import Header from "@/components/Header";
-import Background from "@/components/background/Background";
-import ReduxWrapper from "@/components/ReduxWrapper";
-import { OverlayProvider } from "@/components/overlay/OverlayProvider";
+import React from 'react';
+import './globals.css';
+import Header from '@/components/Header';
+import ReduxWrapper from '@/components/ReduxWrapper';
+import Background from '@/components/background/Background';
+import { OverlayProvider } from '@/components/overlay/OverlayProvider';
+import SidebarNavigation from '@/components/sidebar/Navigation';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Weather Notification",
-  description: "Notice in your computer",
+  title: 'Weather Notification',
+  description: 'Notice in your computer',
 };
 
 export default function RootLayout({
@@ -17,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" suppressHydrationWarning>
-      <body className="flex flex-col h-screen overscroll-none">
+    <html lang='ja' suppressHydrationWarning>
+      <body className='flex h-screen flex-col overscroll-none'>
         <ReduxWrapper>
           <OverlayProvider>
             <Background />

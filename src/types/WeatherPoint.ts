@@ -3,4 +3,4 @@ export type WeatherPoint = {
   name: string;
   latitude: number;
   longitude: number;
-}
+};

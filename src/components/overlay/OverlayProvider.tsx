@@ -1,11 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
-import { createContext, useContext, useState } from "react";
-import Overlay from "./Overlay";
-import React from "react";
+import { createContext, useContext, useState } from 'react';
+import React from 'react';
+import Overlay from './Overlay';
 
 const OverlayContext = createContext({
-  openOverlay: (_content: React.ReactNode) => {},
+  // eslint-disable-next-line no-unused-vars
+  openOverlay: (content: React.ReactNode) => {},
   closeOverlay: () => {},
 });
 
@@ -29,7 +29,7 @@ export function OverlayProvider({ children }: { children: React.ReactNode }) {
         </Overlay>
       ))}
     </OverlayContext.Provider>
-  )
+  );
 }
 
-export const useOverlay = () => useContext(OverlayContext)
+export const useOverlay = () => useContext(OverlayContext);

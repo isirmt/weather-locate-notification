@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-import type { Config } from "tailwindcss";
 import { iconsPlugin, getIconCollections } from '@egoist/tailwindcss-icons'
+import type { Config } from "tailwindcss";
 
 export default {
   content: [

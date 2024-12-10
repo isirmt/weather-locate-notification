@@ -1,9 +1,9 @@
 'use client';
 
+import { useEffect } from 'react';
 import { configureStore } from '@reduxjs/toolkit';
 import { POINTS_LOCAL_STORAGE_KEY, POINTS_REDUX_KEY, pointsReducer } from './PointReducer';
 import { SETTINGS_LOCAL_STORAGE_KEY, SETTINGS_REDUX_KEY, settingsReducer } from './SettingReducer';
-import { useEffect } from 'react';
 
 export const store = configureStore({
   reducer: {
@@ -27,10 +27,10 @@ export const useSyncLocalStorage = () => {
             payload: parsedState,
           });
         } catch (error) {
-          console.error("Failed to parse localStorage state:", error);
+          console.error('Failed to parse localStorage state:', error);
         }
       }
-    }
+    };
 
     initialize(POINTS_LOCAL_STORAGE_KEY, `${POINTS_REDUX_KEY}/setStateFromLocalStorage`);
     initialize(SETTINGS_LOCAL_STORAGE_KEY, `${SETTINGS_REDUX_KEY}/setSettings`);
@@ -43,7 +43,7 @@ export const useSyncLocalStorage = () => {
         save(store.getState().pointsState, POINTS_LOCAL_STORAGE_KEY);
         save(store.getState().settingsState, SETTINGS_LOCAL_STORAGE_KEY);
       } catch (error) {
-        console.error("Failed to save state to localStorage:", error);
+        console.error('Failed to save state to localStorage:', error);
       }
     });
 
@@ -51,4 +51,4 @@ export const useSyncLocalStorage = () => {
       unsubscribe();
     };
   }, []);
-}
+};

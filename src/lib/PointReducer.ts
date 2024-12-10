@@ -1,18 +1,18 @@
 'use client';
 
-import { WeatherPoint } from '@/types/WeatherPoint';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { WeatherPoint } from '@/types/WeatherPoint';
 export const POINTS_LOCAL_STORAGE_KEY = 'weather_points_state';
 export const POINTS_REDUX_KEY = 'weather_points';
 
 export type PointState = {
   points: WeatherPoint[];
   currentPoint: WeatherPoint | null;
-}
+};
 
 const initialState: PointState = {
   points: [],
-  currentPoint: null
+  currentPoint: null,
 };
 
 const pointsSlice = createSlice({
@@ -38,7 +38,7 @@ const pointsSlice = createSlice({
     },
     changeCurrentPoint: (state, action: PayloadAction<string>) => {
       state.currentPoint = state.points.find((point) => point.uuid === action.payload) || state.points[0] || null;
-    }
+    },
   },
 });
 

@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import { useSyncLocalStorage } from "@/lib/store";
+import { useSyncLocalStorage } from '@/lib/store';
 
 export default function StoreSync() {
   useSyncLocalStorage();

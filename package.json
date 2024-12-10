@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint --ext .ts,.js,.tsx .",
+    "lint:fix": "eslint --ext .ts,.js,.tsx . --fix",
+    "fmt": "prettier . --write",
+    "check": "eslint --ext .ts,.js,.tsx . && prettier . --check"
   },
   "dependencies": {
     "@egoist/tailwindcss-icons": "^1.8.1",
@@ -42,7 +45,10 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
+    "eslint-config-prettier": "^9.1.0",
     "postcss": "^8",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwind-scrollbar": "^3.1.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"

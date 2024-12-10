@@ -1,17 +1,19 @@
-'use client'
+'use client';
 
-import React from "react"
+import React from 'react';
 
 type InputProps = {
-  children: React.ReactNode
-  onClick: () => void
-}
+  children: React.ReactNode;
+  onClick: () => void;
+};
 
 export default function DefaultButton(props: InputProps) {
-  return <button
-    className="bg-sky-700 font-bold text-white rounded p-1 w-48 hover:bg-sky-600 transition-colors"
-    onClick={props.onClick}
-  >
-    {props.children}
-  </button>
+  return (
+    <button
+      className='w-48 rounded bg-sky-700 p-1 font-bold text-white transition-colors hover:bg-sky-600'
+      onClick={props.onClick}
+    >
+      {props.children}
+    </button>
+  );
 }
