@@ -51,7 +51,7 @@ export default function SidebarNavigation() {
           <ul>
             <li>
               {tabLinks.map((tabLink, i) => (
-                <SidebarItem key={i} href={tabLink.href}>
+                <SidebarItem onClick={() => setIsOpen(false)} key={i} href={tabLink.href}>
                   {tabLink.node}
                 </SidebarItem>
               ))}
